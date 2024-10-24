@@ -28,10 +28,6 @@ $(NAME):	$(OBJ_FILES)
 %.o:		%.c
 			@$(CC) $(CFLAGS) -c $< -o $@
 
-bonus:		$(OBJ_FILES) $(BOBJ_FILES)
-			@$(AR) $(NAME) $(OBJ_FILES) $(BOBJ_FILES)
-			@echo "Done building libft_bonus"
-
 clean:		
 			@$(RM) $(OBJ_FILES) $(BOBJ_FILES)
 			@echo "clean libft"

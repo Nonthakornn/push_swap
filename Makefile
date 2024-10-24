@@ -11,10 +11,12 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 IFLAGS = -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)
 
-HELPER_FILES = helper1.c
+RULE_FILES = main.c push.c rotate.c \
+				reverse_rotate.c swap.c
 
-OBJ_FILES = $(HELPER_FILES:.c=.o)
+OBJ_FILES = $(RULE_FILES:.c=.o)
 
+#target:	prerequisite
 all:		$(LIBFT_DIR) $(FT_PRINTF_DIR) $(NAME)
 
 $(NAME):	$(LIBFT_DIR) $(FT_PRINTF_DIR) $(OBJ_FILES)	
@@ -23,7 +25,7 @@ $(NAME):	$(LIBFT_DIR) $(FT_PRINTF_DIR) $(OBJ_FILES)
 
 %.o:		%.c
 			@echo $< $@
-			$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) $(IFLAGS) -c $? -o $@
 
 vg:			all
 			valgrind --leak-check=full --show-leak-kinds=all ./push_swap

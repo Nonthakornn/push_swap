@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nchencha <nchencha@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 12:43:05 by nchencha          #+#    #+#             */
-/*   Updated: 2024/09/21 12:47:16 by nchencha         ###   ########.fr       */
+/*   Created: 2024-10-24 06:50:56 by nchencha          #+#    #+#             */
+/*   Updated: 2024-10-24 06:50:56 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int main()
 {
-	t_list	*node;
-
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		node = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = node;
-	}
+	return (0);
 }
