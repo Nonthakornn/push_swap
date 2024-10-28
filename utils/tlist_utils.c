@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_utils.c                                   :+:      :+:    :+:   */
+/*   tlist_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchencha <nchencha@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-10-24 06:57:45 by nchencha          #+#    #+#             */
-/*   Updated: 2024-10-24 06:57:45 by nchencha         ###   ########.fr       */
+/*   Created: 2024-10-28 09:19:37 by nchencha          #+#    #+#             */
+/*   Updated: 2024-10-28 09:19:37 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //Create a new node
 t_list	*ft_lstnew(int value)
@@ -86,6 +86,7 @@ void	print_list(t_list *stack)
 		ptr = ptr->link;
 	}
 }
+
 
 int	main(void)
 {

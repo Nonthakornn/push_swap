@@ -11,10 +11,9 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 IFLAGS = -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)
 
-RULE_FILES = main.c push.c rotate.c \
-				reverse_rotate.c swap.c
+SRC_FILES = $(wildcard utils/*.c)
 
-OBJ_FILES = $(RULE_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:.c=.o)
 
 #target:	prerequisite
 all:		$(LIBFT_DIR) $(FT_PRINTF_DIR) $(NAME)
