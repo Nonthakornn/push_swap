@@ -1,6 +1,7 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall
 RM = rm -f
 
 LIBFT_DIR =  libft
@@ -11,7 +12,7 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 IFLAGS = -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)
 
-SRC_FILES = $(wildcard utils/*.c)
+SRC_FILES = $(wildcard utils/*.c ./*.c)
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 

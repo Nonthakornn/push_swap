@@ -27,7 +27,7 @@ typedef struct s_list
 
 }t_list;
 
-//Utils
+//tlist_utils
 t_list *ft_lstnew(int value);
 t_list *ft_lstlast(t_list *stack);
 int	ft_lstsize(t_list *stack);
