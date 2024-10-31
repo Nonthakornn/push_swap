@@ -34,7 +34,7 @@ void	print_list(t_list *stack)
 	ptr = stack;
 	while (ptr)
 	{
-		ft_printf("%d ", ptr->value);
+		ft_printf("%d\n", ptr->value);
 		ptr = ptr->link;
 	}
 }

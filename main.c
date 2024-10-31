@@ -14,16 +14,20 @@
 
 int main(int argc, char **argv)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_list **stack_a;
+	t_list **stack_b;
 
 	if (argc ==  1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
-		printf("Argrment is now 2"); // Delete later
 	check_args(argc, argv);
-	stack_a = init_stack(argc, argv);
-	stack_b = NULL;
+	stack_a = malloc(sizeof(t_list));
+	stack_b = malloc(sizeof(t_list));
+	*stack_a = NULL;
+	*stack_b = NULL;
+	init_stack(stack_a, argc, argv);
+	print_list(*stack_a);
+
+	return (0);
 }
 
 /*

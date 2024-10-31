@@ -17,3 +17,14 @@ void	ft_error(char *str)
 	ft_putendl_fd(str, 1);
 	exit (0);
 }
+
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	while(i >= 0)
+		free(str[i--]);
+}

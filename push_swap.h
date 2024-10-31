@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stdio.h> // Delete this later just use to checking the stage
 # include <stdlib.h>
 # include <limits.h>
 # include "libft.h"
@@ -41,11 +41,13 @@ void	print_list(t_list *stack);
 
 //Check Arguments
 void		check_args(int argc, char **argv);
-static int	check_validNum(char *num);
-static int	check_duplicate(int num, char **new_argv, int i);
+
+//Init Stack
+void init_stack(t_list **stack, int argc, char **argv);
 
 //Utils
 void	ft_error(char *str);
+void	ft_free(char **str);
 //Rules
 
 
