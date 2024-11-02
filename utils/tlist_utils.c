@@ -17,13 +17,12 @@ t_list	*ft_lstnew(int value)
 {
 	t_list	*new_node;
 
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
 	new_node->link = NULL;
 	new_node->index = -1;
-	new_node->link = NULL;
 	return (new_node);
 }
 
@@ -62,4 +61,19 @@ void	ft_lstadd_back(t_list **stack, t_list *new_node)
 		return ;
 	}
 	ft_lstlast(*stack)->link = new_node;
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list *tmp;
+	t_list *current_node;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		current_node = tmp;
+		tmp = tmp->link;
+		free(current_node);
+	}
+	free(stack);
 }

@@ -34,16 +34,22 @@ t_list	*ft_lstnew(int value);
 t_list	*ft_lstlast(t_list *stack);
 void	ft_lstadd_front(t_list **stack, t_list *new_node);
 void	ft_lstadd_back(t_list **stack, t_list *new_node);
+void	free_stack(t_list **stack);
 
 //Print listnode and Size of node 
 int	ft_lstsize(t_list *stack);
 void	print_list(t_list *stack);
+int count_index_nodes(t_list *head); // Delete this later just checking the index
+void print_indexed_nodes(t_list *head); // Delete this also
 
-//Check Arguments
+//Check Arguments & node
 void		check_args(int argc, char **argv);
+int check_acended(t_list **stack);
 
 //Init Stack
 void init_stack(t_list **stack, int argc, char **argv);
+void	assign_index(t_list **stack);
+t_list *find_smallest_node(t_list **stack);
 
 //Utils
 void	ft_error(char *str);

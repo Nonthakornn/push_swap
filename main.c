@@ -25,8 +25,20 @@ int main(int argc, char **argv)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	init_stack(stack_a, argc, argv);
-	print_list(*stack_a);
 
+	print_list(*stack_a); //Delete later
+	printf("\nIndex node in stack_a:\n"); // Delete later
+	print_indexed_nodes(*stack_a); // Delete later
+
+	if (check_acended(stack_a))
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		ft_putendl_fd("OK",1);
+		return (0);
+	}
+	else
+		ft_putendl_fd("KO", 1);
 	return (0);
 }
 

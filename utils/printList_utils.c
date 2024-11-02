@@ -38,3 +38,30 @@ void	print_list(t_list *stack)
 		ptr = ptr->link;
 	}
 }
+
+//Delete this one later just checking index
+int count_index_nodes(t_list *head)
+{
+    int count = 0;
+    while (head)
+    {
+        // Count only nodes with a valid (non-negative) index
+        if (head->index != -1)
+            count++;
+        head = head->link;
+    }
+    return count;
+}
+
+//Also Delete this later or Comment
+void print_indexed_nodes(t_list *head)
+{
+    while (head)
+    {
+        if (head->index != -1) 
+        {
+            printf("index %d : %d\n", head->index, head->value);
+        }
+        head = head->link;
+    }
+}

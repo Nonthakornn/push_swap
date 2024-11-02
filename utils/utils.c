@@ -28,3 +28,17 @@ void	ft_free(char **str)
 	while(i >= 0)
 		free(str[i--]);
 }
+
+int check_acended(t_list **stack)
+{
+	t_list *ptr;
+
+	ptr = *stack;
+	while (ptr && ptr->link)
+	{
+		if (ptr->value > ptr->link->value)
+			return (0);
+		ptr = ptr->link;
+	}
+	return (1);
+}
