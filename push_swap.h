@@ -19,7 +19,6 @@
 # include "libft.h"
 # include "ft_printf.h"
 
-
 //Stack
 typedef struct s_list
 {
@@ -54,9 +53,17 @@ t_list *find_smallest_node(t_list **stack);
 //Utils
 void	ft_error(char *str);
 void	ft_free(char **str);
+
+//Sort Stack 
+void sort_stack(t_list **stack_a, t_list **stack_b);
+void normal_sort(t_list **stack_a, t_list **stack_b);
+//void radix_sort(t_list **stack_a, t_list **stack_b);
+
 //Rules
 
-
-
+int swap(t_list **stack);
+int	sa(t_list **stack_a);
+int sb(t_list **stack_b);
+int ss(t_list **stack_a, t_list **stack_b);
 
 #endif

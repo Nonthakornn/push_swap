@@ -34,11 +34,12 @@ int main(int argc, char **argv)
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
-		ft_putendl_fd("OK",1);
+		ft_putendl_fd("OK", 1);
 		return (0);
 	}
 	else
-		ft_putendl_fd("KO", 1);
+		ft_putendl_fd("It is not acending start sorting...", 1);
+	sort_stack(stack_a, stack_b);
 	return (0);
 }
 
