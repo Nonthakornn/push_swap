@@ -34,7 +34,7 @@ int swap(t_list **stack)
 
 int sa(t_list **stack_a)
 {
-	if(swap(stack_a) == 1)
+	if (swap(stack_a) == 1)
 		return (1);
 	ft_printf("sa\n");
 	return (0);

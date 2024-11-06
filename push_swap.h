@@ -57,13 +57,28 @@ void	ft_free(char **str);
 //Sort Stack 
 void sort_stack(t_list **stack_a, t_list **stack_b);
 void normal_sort(t_list **stack_a, t_list **stack_b);
+int find_minimum_value(t_list **stack, int val);
+int	find_distance(t_list **stack, int index);
 //void radix_sort(t_list **stack_a, t_list **stack_b);
 
 //Rules
-
 int swap(t_list **stack);
 int	sa(t_list **stack_a);
 int sb(t_list **stack_b);
 int ss(t_list **stack_a, t_list **stack_b);
+
+int push(t_list **stack_to, t_list **stack_from);
+int pa(t_list **stack_a, t_list **stack_b);
+int pb(t_list **stack_b, t_list **stack_a);
+
+int rotate(t_list **stack);
+int ra(t_list **stack_a);
+int rb(t_list **stack_b);
+int rr(t_list **stack_a, t_list **stack_b);
+
+int	reverse_rotate(t_list **stack);
+int	rra(t_list **stack_a);
+int	rrb(t_list **stack_b);
+int	rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

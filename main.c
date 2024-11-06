@@ -44,7 +44,6 @@ int main(int argc, char **argv)
 }
 
 /*
-// Cheking list (Clean up later)
 int	main(void)
 {
 	t_list	*head;

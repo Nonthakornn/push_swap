@@ -28,6 +28,8 @@ static int check_validNum(char *num)
 	int	i;
 
 	i = 0;
+	if (num[0] == '-' && num[1] == '\0')
+		ft_error("Error");
 	if (num[0] == '-')
 		i++;
 	while (num[i])
