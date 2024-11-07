@@ -15,7 +15,7 @@
 void	normal_sort(t_list **stack_a, t_list **stack_b);
 static void sort_3(t_list **stack_a);
 static void sort_4(t_list **stack_a, t_list **stack_b);
-// static void sort_5(t_list **stack_a, t_list **stack_b);
+static void sort_5(t_list **stack_a, t_list **stack_b);
 
 void	normal_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -30,8 +30,8 @@ void	normal_sort(t_list **stack_a, t_list **stack_b)
 		sort_3(stack_a);
 	else if (node_size == 4)
 		sort_4(stack_a, stack_b);
-	// else if (node_size == 5)
-	// 	sort_5(stack_a, stack_b);
+	else if (node_size == 5)
+		sort_5(stack_a, stack_b);
 }
 
 static void sort_3(t_list **stack_a)
@@ -93,4 +93,28 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
-// static void sort_5(t_list **stack_a, t_list **stack_b);
+static void sort_5(t_list **stack_a, t_list **stack_b)
+{
+	int	distance;
+
+	distance = find_distance(stack_a, find_minimum_value(stack_a, -1));
+	if (distance == 1)
+		ra(stack_a);
+	else if (distance == 2)
+	{
+		ra(stack_a);
+		ra(stack_a);
+	}
+	else if (distance == 3)
+	{
+		rra(stack_a);
+		rra(stack_a);
+	}
+	else if (distance == 4)
+		rra(stack_a);
+	if (check_acended(stack_a))
+		return ;
+	pb(stack_a, stack_b);
+	sort_4(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}
