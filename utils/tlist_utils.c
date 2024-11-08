@@ -65,8 +65,8 @@ void	ft_lstadd_back(t_list **stack, t_list *new_node)
 
 void	free_stack(t_list **stack)
 {
-	t_list *tmp;
-	t_list *current_node;
+	t_list	*tmp;
+	t_list	*current_node;
 
 	tmp = *stack;
 	while (tmp)
@@ -75,5 +75,5 @@ void	free_stack(t_list **stack)
 		tmp = tmp->link;
 		free(current_node);
 	}
-	free(stack);
+	free (stack);
 }

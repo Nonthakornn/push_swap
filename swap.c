@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int swap(t_list **stack)
+int	swap(t_list **stack)
 {
-	t_list *head;
-	t_list *link;
-	int tmp_value;
-	int tmp_index;
+	t_list	*head;
+	t_list	*link;
+	int		tmp_value;
+	int		tmp_index;
 
 	if (ft_lstsize(*stack) < 2)
 		return (1);
@@ -32,7 +32,7 @@ int swap(t_list **stack)
 	return (0);
 }
 
-int sa(t_list **stack_a)
+int	sa(t_list **stack_a)
 {
 	if (swap(stack_a) == 1)
 		return (1);
@@ -40,23 +40,22 @@ int sa(t_list **stack_a)
 	return (0);
 }
 
-int sb(t_list **stack_b)
+int	sb(t_list **stack_b)
 {
-	if(swap(stack_b) == 1)
+	if (swap(stack_b) == 1)
 		return (1);
 	ft_printf("sb\n");
 	return (0);
 }
 
-int ss(t_list **stack_a, t_list **stack_b)
+int	ss(t_list **stack_a, t_list **stack_b)
 {
-	int nodeA_size;
-	int nodeB_size; 
-	
-	nodeA_size = ft_lstsize(*stack_a);
-	nodeB_size = ft_lstsize(*stack_b);
+	int	node_a_size;
+	int	node_b_size;
 
-	if (nodeA_size < 2 || nodeB_size < 2)
+	node_a_size = ft_lstsize(*stack_a);
+	node_b_size = ft_lstsize(*stack_b);
+	if (node_a_size < 2 || node_b_size < 2)
 		return (1);
 	swap(stack_b);
 	swap(stack_a);

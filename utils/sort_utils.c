@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int find_minimum_value(t_list **stack, int val)
+int	find_minimum_value(t_list **stack, int val)
 {
 	t_list	*head;
 	int		min;
@@ -25,7 +25,7 @@ int find_minimum_value(t_list **stack, int val)
 		if ((head->index < min) && head->index != val)
 			min = head->index;
 	}
-	return (min);	
+	return (min);
 }
 
 int	find_distance(t_list **stack, int index)

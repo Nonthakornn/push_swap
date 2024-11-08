@@ -14,7 +14,8 @@
 
 void	ft_error(char *str)
 {
-	ft_putendl_fd(str, 1);
+	(void)str;
+	write(2, "Error\n", 6);
 	exit (0);
 }
 
@@ -25,13 +26,16 @@ void	ft_free(char **str)
 	i = 0;
 	while (str[i])
 		i++;
-	while(i >= 0)
-		free(str[i--]);
+	while (i >= 0)
+	{
+		free (str[i]);
+		i--;
+	}
 }
 
-int check_acended(t_list **stack)
+int	check_acended(t_list **stack)
 {
-	t_list *ptr;
+	t_list	*ptr;
 
 	ptr = *stack;
 	while (ptr && ptr->link)
@@ -43,7 +47,7 @@ int check_acended(t_list **stack)
 	return (1);
 }
 
-void sort_stack(t_list **stack_a, t_list **stack_b)
+void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) <= 5)
 		normal_sort(stack_a, stack_b);

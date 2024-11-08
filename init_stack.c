@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-void init_stack(t_list **stack, int argc, char **argv);
+void	init_stack(t_list **stack, int argc, char **argv);
 void	assign_index(t_list **stack);
-t_list *find_smallest_node(t_list **stack);
+t_list	*find_smallest_node(t_list **stack);
 
-void init_stack(t_list **stack, int argc, char **argv)
+void	init_stack(t_list **stack, int argc, char **argv)
 {
-	t_list *new_node;
-	char **tmp_argv;
-	int i;
+	t_list	*new_node;
+	char	**tmp_argv;
+	int		i;
 
 	i = 0;
 	if (argc == 2)
-		tmp_argv = ft_split(argv[1], ' ');
+		tmp_argv = ps_split(argv[1], ' ');
 	else
 	{
 		i = 1;
@@ -55,7 +55,7 @@ void	assign_index(t_list **stack)
 	}
 }
 
-t_list *find_smallest_node(t_list **stack)
+t_list	*find_smallest_node(t_list **stack)
 {
 	t_list	*head;
 	t_list	*min;
@@ -71,5 +71,4 @@ t_list *find_smallest_node(t_list **stack)
 		head = head->link;
 	}
 	return (min);
-
 }

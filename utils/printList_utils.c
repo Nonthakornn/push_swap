@@ -39,22 +39,24 @@ void	print_list(t_list *stack)
 	}
 }
 
+/*
 //Delete this one later just checking index
-int count_index_nodes(t_list *head)
+int	count_index_nodes(t_list *head)
 {
-    int count = 0;
-    while (head)
+	int	count;
+
+	count = 0;
+	while (head)
     {
-        // Count only nodes with a valid (non-negative) index
-        if (head->index != -1)
-            count++;
-        head = head->link;
+		if (head->index != -1)
+			count++;
+		head = head->link;
     }
-    return count;
+    return (count);
 }
 
 //Also Delete this later or Comment
-void print_indexed_nodes(t_list *head)
+void	print_indexed_nodes(t_list *head)
 {
     while (head)
     {
@@ -65,3 +67,4 @@ void print_indexed_nodes(t_list *head)
         head = head->link;
     }
 }
+*/

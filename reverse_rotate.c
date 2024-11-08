@@ -25,12 +25,12 @@ int	reverse_rotate(t_list **stack)
 	{
 		if (head->link->link == NULL)
 		{
-			 head->link = NULL;
-			 break ;
+			head->link = NULL;
+			break ;
 		}
 		head = head->link;
 	}
-	tail->link= *stack;
+	tail->link = *stack;
 	*stack = tail;
 	return (0);
 }

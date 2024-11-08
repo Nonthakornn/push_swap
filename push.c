@@ -39,8 +39,7 @@ int	push(t_list **stack_to, t_list **stack_from)
 	return (0);
 }
 
-
-int pa(t_list **stack_a, t_list **stack_b)
+int	pa(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_a, stack_b) == -1)
 		return (-1);
@@ -48,7 +47,7 @@ int pa(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-int pb(t_list **stack_a, t_list **stack_b)
+int	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_b, stack_a) == -1)
 		return (-1);

@@ -12,13 +12,54 @@
 
 #include "push_swap.h"
 
-void radix_sort(t_list **stack_a, t_list **stack_b)
+static void	process_bit(t_list **stack_a, t_list **stack_b, int pos, int size)
 {
-	t_list *head;
-	int i;
-	int j;
-	int size;
-	int max_bit;
+	t_list	*head;
+	int		j;
+
+	j = 0;
+	while (j < size)
+	{
+		head = *stack_a;
+		if (((head->index >> pos) & 1) == 1)
+			ra(stack_a);
+		else
+			pb(stack_a, stack_b);
+		j++;
+	}
+}
+
+static void	move_back_to_a(t_list **stack_a, t_list **stack_b)
+{
+	while (ft_lstsize(*stack_b) != 0)
+		pa(stack_a, stack_b);
+}
+
+void	radix_sort(t_list **stack_a, t_list **stack_b)
+{
+	int	i;
+	int	size;
+	int	max_bit;
+
+	i = 0;
+	size = ft_lstsize(*stack_a);
+	max_bit = max_bits(stack_a);
+	while (i < max_bit)
+	{
+		process_bit(stack_a, stack_b, i, size);
+		move_back_to_a(stack_a, stack_b);
+		i++;
+	}
+}
+
+/*
+void	radix_sort(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*head;
+	int		i;
+	int		j;
+	int		size;
+	int		max_bit;
 
 	i = 0;
 	head = *stack_a;
@@ -41,6 +82,7 @@ void radix_sort(t_list **stack_a, t_list **stack_b)
 		i++;
 	}
 }
+*/
 
 /*
 head->index >> i shifts the bits of head->index 

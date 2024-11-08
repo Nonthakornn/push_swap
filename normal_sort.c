@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	normal_sort(t_list **stack_a, t_list **stack_b);
-static void sort_3(t_list **stack_a);
-static void sort_4(t_list **stack_a, t_list **stack_b);
-static void sort_5(t_list **stack_a, t_list **stack_b);
+void		normal_sort(t_list **stack_a, t_list **stack_b);
+static void	sort_3(t_list **stack_a);
+static void	sort_4(t_list **stack_a, t_list **stack_b);
+static void	sort_5(t_list **stack_a, t_list **stack_b);
 
 void	normal_sort(t_list **stack_a, t_list **stack_b)
 {
-	int node_size;
+	int	node_size;
 
 	node_size = ft_lstsize(*stack_a);
 	if (check_acended(stack_a) || ft_lstsize(*stack_a) <= 1)
@@ -34,11 +34,11 @@ void	normal_sort(t_list **stack_a, t_list **stack_b)
 		sort_5(stack_a, stack_b);
 }
 
-static void sort_3(t_list **stack_a)
+static void	sort_3(t_list **stack_a)
 {
-	t_list *head;
-	int min_value;
-	int next_min;
+	t_list	*head;
+	int		min_value;
+	int		next_min;
 
 	head = *stack_a;
 	min_value = find_minimum_value(stack_a, -1);
@@ -46,28 +46,11 @@ static void sort_3(t_list **stack_a)
 	if (check_acended(stack_a))
 		return ;
 	if (head->index == min_value && head->link->index != next_min)
-	{
-		ra(stack_a);
-		sa(stack_a);
-		rra(stack_a);
-	}
+		handle_min_case(stack_a);
 	else if (head->index == next_min)
-	{
-		if (head->link->index == min_value)
-			sa(stack_a);
-		else
-			rra(stack_a);
-	}
+		handle_next_min_case(stack_a, head, min_value);
 	else
-	{
-		if (head->link->index == min_value)
-			ra(stack_a);
-		else
-		{
-			sa(stack_a);
-			rra(stack_a);
-		}
-	}
+		handle_other_case(stack_a, head, min_value);
 }
 
 static void	sort_4(t_list **stack_a, t_list **stack_b)
@@ -93,7 +76,7 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
-static void sort_5(t_list **stack_a, t_list **stack_b)
+static void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
@@ -118,3 +101,39 @@ static void sort_5(t_list **stack_a, t_list **stack_b)
 	sort_4(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
+
+/*
+static void	sort_3(t_list **stack_a)
+{
+	t_list	*head;
+	int		min_value;
+	int		next_min;
+
+	head = *stack_a;
+	min_value = find_minimum_value(stack_a, -1);
+	next_min = find_minimum_value(stack_a, min_value);
+	if (head->index == min_value && head->link->index != next_min)
+	{
+		ra(stack_a);
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (head->index == next_min)
+	{
+		if (head->link->index == min_value)
+			sa(stack_a);
+		else
+			rra(stack_a);
+	}
+	else
+	{
+		if (head->link->index == min_value)
+			ra(stack_a);
+		else
+		{
+			sa(stack_a);
+			rra(stack_a);
+		}
+	}
+}
+*/

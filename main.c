@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_list **stack_a;
-	t_list **stack_b;
+	t_list	**stack_a;
+	t_list	**stack_b;
 
-	if (argc ==  1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	check_args(argc, argv);
 	stack_a = malloc(sizeof(t_list));
@@ -25,18 +25,12 @@ int main(int argc, char **argv)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	init_stack(stack_a, argc, argv);
-	print_list(*stack_a); //Delete later
-	printf("\nIndex node in stack_a:\n"); // Delete later
-	print_indexed_nodes(*stack_a); // Delete later
 	if (check_acended(stack_a))
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
-		ft_putendl_fd("OK", 1);
 		return (0);
 	}
-	else
-		ft_putendl_fd("It is not acending start sorting...", 1);
 	sort_stack(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
