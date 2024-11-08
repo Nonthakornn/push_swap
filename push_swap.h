@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // Delete this later just use to checking the stage
 # include <stdlib.h>
 # include <limits.h>
 # include "libft.h"
@@ -59,7 +58,8 @@ void sort_stack(t_list **stack_a, t_list **stack_b);
 void normal_sort(t_list **stack_a, t_list **stack_b);
 int find_minimum_value(t_list **stack, int val);
 int	find_distance(t_list **stack, int index);
-//void radix_sort(t_list **stack_a, t_list **stack_b);
+void radix_sort(t_list **stack_a, t_list **stack_b);
+int	max_bits(t_list **stack);
 
 //Rules
 int swap(t_list **stack);
@@ -82,3 +82,9 @@ int	rrb(t_list **stack_b);
 int	rrr(t_list **stack_a, t_list **stack_b);
 
 #endif
+
+/*
+Function use to check for debugging
+	int count_index_nodes(t_list *head);
+	void print_indexed_nodes(t_list *head);
+*/

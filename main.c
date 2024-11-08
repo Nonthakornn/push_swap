@@ -25,11 +25,9 @@ int main(int argc, char **argv)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	init_stack(stack_a, argc, argv);
-
 	print_list(*stack_a); //Delete later
 	printf("\nIndex node in stack_a:\n"); // Delete later
 	print_indexed_nodes(*stack_a); // Delete later
-
 	if (check_acended(stack_a))
 	{
 		free_stack(stack_a);
@@ -40,10 +38,20 @@ int main(int argc, char **argv)
 	else
 		ft_putendl_fd("It is not acending start sorting...", 1);
 	sort_stack(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }
 
 /*
+print_list in stack
+	print_list(*stack_a); //Delete later
+	printf("\nIndex node in stack_a:\n"); // Delete later
+	print_indexed_nodes(*stack_a); // Delete later
+*/
+
+/*
+Checking linklist
 int	main(void)
 {
 	t_list	*head;

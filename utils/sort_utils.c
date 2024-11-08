@@ -44,4 +44,29 @@ int	find_distance(t_list **stack, int index)
 	}
 	return (distance);
 }
-	
+
+int	max_bits(t_list **stack)
+{
+	t_list	*head;
+	int		max;
+	int		max_bits;
+
+	head = *stack;
+	max = head->index;
+	max_bits = 0;
+	while (head)
+	{
+		if (head->index > max)
+			max = head->index;
+		head = head->link;
+	}
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
+}
+
+/*
+If the largest index is 7 (binary 111)
+it would return 3 because three bits(111)
+are needed to represent 7.
+*/
