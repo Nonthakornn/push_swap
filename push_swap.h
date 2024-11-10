@@ -41,7 +41,7 @@ void	print_list(t_list *stack);
 //split
 char	**ps_split(char *s, char c);
 int		word_count(char *str, char c);
-void	free_array(char **str_array, int count);
+//void	free_array(char **str_array, int count);
 
 //Check Arguments & node
 void	check_args(int argc, char **argv);

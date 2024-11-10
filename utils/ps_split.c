@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
-int		word_count(char *str, char c);
-char	*fill_word(char *str, int start, int end);
-void	free_array(char **str_array, int count);
+int			word_count(char *str, char c);
+char		*fill_word(char *str, int start, int end);
+static void	free_array(char **str_array, int count);
 
 char	**ps_split(char *s, char c)
 {
@@ -38,10 +39,7 @@ char	**ps_split(char *s, char c)
 			end++;
 		array[i] = fill_word(s, start, end);
 		if (!array[i])
-		{
 			free_array(array, i);
-			return NULL;
-		}
 		i++;
 	}
 	array[i] = NULL;
@@ -88,12 +86,12 @@ char	*fill_word(char *str, int start, int end)
 	return (word);
 }
 
-void	free_array(char **str_array, int count)
+static void	free_array(char **str_array, int count)
 {
 	int	i;
 
 	i = 0;
-	while (i < count)
+	while (str_array[i])
 	{
 		free(str_array[i]);
 		i++;

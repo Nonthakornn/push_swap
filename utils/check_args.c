@@ -78,4 +78,6 @@ void	check_args(int argc, char **argv)
 			ft_error("Error");
 		i++;
 	}
+	if (argc == 2)
+		ft_free(new_argv);
 }
