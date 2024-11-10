@@ -12,78 +12,91 @@
 
 #include "../push_swap.h"
 
-int	word_count(char const *s, char c)
-{
-	int	i;
-	int	count;
+int		word_count(char *str, char c);
+char	*fill_word(char *str, int start, int end);
+void	free_array(char **str_array, int count);
 
+char	**ps_split(char *s, char c)
+{
+	char	**array;
+	int		i;
+	int		start;
+	int		end;
+
+	array = malloc((word_count(s, c) + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
 	i = 0;
-	count = 0;
-	while (s[i])
+	start = 0;
+	end = 0;
+	while (i < word_count(s, c))
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			count++;
+		while (s[end] == c)
+			end++;
+		start = end;
+		while (s[end] != c && s[end] != '\0')
+			end++;
+		array[i] = fill_word(s, start, end);
+		if (!array[i])
+		{
+			free_array(array, i);
+			return NULL;
+		}
 		i++;
+	}
+	array[i] = NULL;
+	return (array);
+}
+
+int	word_count(char *str, char c)
+{
+	int	count;
+	int	split;
+
+	count = 0;
+	split = 0;
+	while (*str)
+	{
+		if (*str != c && split == 0)
+		{
+			split = 1;
+			count++;
+		}
+		else if (*str == c)
+			split = 0;
+		str++;
 	}
 	return (count);
 }
 
-int	word_length(char const *s, char c)
+char	*fill_word(char *str, int start, int end)
+{
+	char	*word;
+	int		i;
+
+	word = (char *)malloc((end - start + 1) * sizeof(char));
+	i = 0;
+	if (!word)
+		return (NULL);
+	while (start < end)
+	{
+		word[i] = str[start];
+		start++;
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
+void	free_array(char **str_array, int count)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = 0;
-	while (s[i] != c && s[i] != '\0')
+	while (i < count)
 	{
+		free(str_array[i]);
 		i++;
-		len++;
 	}
-	return (len);
-}
-
-char	**fill_word(char const *s, char c, char **arr, int words_count)
-{
-	int	i;
-	int	j;
-	int	w_len;
-
-	while (*s == c)
-		s++;
-	i = -1;
-	while (++i < words_count)
-	{
-		while (*s == c)
-			s++;
-		j = 0;
-		w_len = word_length(s, c);
-		arr[i] = (char *)malloc(sizeof(char) * (w_len + 1));
-		if (!(arr[i]))
-			return (NULL);
-		while (j < w_len)
-		{
-			arr[i][j] = *s;
-			s++;
-			j++;
-		}
-		arr[i][j] = '\0';
-	}
-	return (arr);
-}
-
-char	**ps_split(char const *s, char c)
-{
-	char	**arr;
-	int		count;
-
-	if (!s)
-		return (NULL);
-	count = word_count(s, c);
-	arr = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!(arr))
-		return (NULL);
-	arr = fill_word(s, c, arr, count);
-	arr[count] = NULL;
-	return (arr);
+	free(str_array);
 }

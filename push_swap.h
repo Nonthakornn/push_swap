@@ -39,10 +39,9 @@ int		ft_lstsize(t_list *stack);
 void	print_list(t_list *stack);
 
 //split
-char	**ps_split(char const *s, char c);
-int		word_count(char const *s, char c);
-int		word_length(char const *s, char c);
-char	**fill_word(char const *s, char c, char **arr, int words_count);
+char	**ps_split(char *s, char c);
+int		word_count(char *str, char c);
+void	free_array(char **str_array, int count);
 
 //Check Arguments & node
 void	check_args(int argc, char **argv);

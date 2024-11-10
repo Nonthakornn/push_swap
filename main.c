@@ -38,6 +38,10 @@ int	main(int argc, char **argv)
 }
 
 /*
+valgrind --leak-check=full --show-leak-kinds=all ./push_swap ""
+*/
+
+/*
 print_list in stack
 	print_list(*stack_a); //Delete later
 	printf("\nIndex node in stack_a:\n"); // Delete later
