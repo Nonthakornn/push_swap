@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_list	**stack_a;
 	t_list	**stack_b;
 
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc < 2)
 		return (1);
 	check_args(argc, argv);
 	stack_a = malloc(sizeof(t_list));

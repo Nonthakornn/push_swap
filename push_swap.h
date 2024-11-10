@@ -43,9 +43,11 @@ char	**ps_split(char *s, char c);
 int		word_count(char *str, char c);
 //void	free_array(char **str_array, int count);
 
-//Check Arguments & node
+//Check Arguments & node and args utils
 void	check_args(int argc, char **argv);
 int		check_acended(t_list **stack);
+// int	count_tokens(int argc, char **argv);
+// char	**populate_args(int argc, char **argv, int token_count);
 
 //Init Stack
 void	init_stack(t_list **stack, int argc, char **argv);
@@ -55,6 +57,7 @@ t_list	*find_smallest_node(t_list **stack);
 //Utils
 void	ft_error(char *str);
 void	ft_free(char **str);
+int		is_whitespace(char *str);
 
 //Sort Stack 
 void	sort_stack(t_list **stack_a, t_list **stack_b);

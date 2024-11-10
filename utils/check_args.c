@@ -14,15 +14,113 @@
 
 void		check_args(int argc, char **argv);
 static int	check_valid_num(char *num);
-static int	check_duplicate(int num, char **new_argv, int i);
+static int	check_duplicate(int num, char **all_args, int i);
+
+static int	check_valid_num(char *num)
+{
+	int	i;
+
+	i = 0;
+	if (num[0] == '-' || num[0] == '+')
+		i++;
+	if (num[i] == '\0')
+		ft_error("Error");
+	while (num[i])
+	{
+		if (!ft_isdigit(num[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	check_duplicate(int num, char **all_args, int i)
+{
+	i++;
+	while (all_args[i])
+	{
+		if (ft_atoi(all_args[i]) == num)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	check_args(int argc, char **argv)
+{
+	int		i, j, token_count;
+	long	int_argv;
+	char	**split_args;
+	char	**all_args;
+	int		arg_count = 0;
+
+	token_count = 0;
+	i = 1;
+	while (i < argc)
+	{
+		split_args = ps_split(argv[i], ' ');
+		j = 0;
+		if (split_args[0] == NULL)
+		{
+			free(split_args[0]);
+			free(split_args);
+			ft_error("Error");
+		}
+		while (split_args[j])
+		{
+			free(split_args[j]);
+			token_count++;
+			j++;
+		}
+		free(split_args); 
+		i++;
+	}
+
+	all_args = (char **)malloc((token_count + 1) * sizeof(char *));
+	if (!all_args)
+		ft_error("Error");
+
+	i = 1;
+	while (i < argc)
+	{
+		split_args = ps_split(argv[i], ' ');
+		j = 0;
+		while (split_args[j])
+		{
+			all_args[arg_count++] = split_args[j];
+			j++;
+		}
+		free(split_args);
+		i++;
+	}
+	all_args[arg_count] = NULL;
+
+	i = 0;
+	while (all_args[i])
+	{
+		int_argv = ft_atoi(all_args[i]);
+		if (int_argv < INT_MIN || int_argv > INT_MAX)
+			ft_error("Error");
+		if (!check_valid_num(all_args[i]))
+			ft_error("Error");
+		if (check_duplicate(int_argv, all_args, i))
+			ft_error("Error");
+		i++;
+	}
+	i = 0;
+	while (i < arg_count)
+	{
+		free(all_args[i]);
+		i++;
+	}
+	free(all_args);
+}
 
 /*
-Validate command line artguments
-- Handle differnt input formats
-- Handle memory management
-- Checks if the input contains valid numbers
-- Check if the input has duplicate or number out of valid range
-*/
+void		check_args(int argc, char **argv);
+static int	check_valid_num(char *num);
+static int	check_duplicate(int num, char **new_argv, int i);
+
 static int	check_valid_num(char *num)
 {
 	int	i;
@@ -81,3 +179,4 @@ void	check_args(int argc, char **argv)
 	if (argc == 2)
 		ft_free(new_argv);
 }
+*/

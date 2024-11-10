@@ -55,3 +55,14 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 	else
 		radix_sort(stack_a, stack_b);
 }
+
+int	is_whitespace(char *str)
+{
+	while (*str)
+	{
+		if (!(*str == 32 || (*str >= 9 && *str <= 13)))
+			ft_error("Error");
+		str++;
+	}
+	return (1);
+}
